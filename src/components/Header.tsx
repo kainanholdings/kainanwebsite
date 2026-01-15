@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const navigation = [
@@ -22,8 +23,14 @@ export default function Header() {
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-heading font-bold text-xl">K</span>
+                        <div className="w-12 h-12 relative flex-shrink-0">
+                            <Image
+                                src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo.png"
+                                alt="Kainan Holdings Logo"
+                                fill
+                                className="object-contain"
+                                unoptimized
+                            />
                         </div>
                         <div className="flex flex-col">
                             <span className="font-heading font-bold text-xl text-secondary-900">KAINAN</span>

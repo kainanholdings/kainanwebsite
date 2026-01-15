@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const quickLinks = [
     { name: "About Us", href: "/about" },
@@ -25,8 +26,14 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-heading font-bold text-xl">K</span>
+                            <div className="w-12 h-12 relative flex-shrink-0 bg-white rounded-lg">
+                                <Image
+                                    src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo.png"
+                                    alt="Kainan Holdings Logo"
+                                    fill
+                                    className="object-contain p-1"
+                                    unoptimized
+                                />
                             </div>
                             <div className="flex flex-col">
                                 <span className="font-heading font-bold text-xl">KAINAN</span>
