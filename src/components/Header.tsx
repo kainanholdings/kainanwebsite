@@ -22,19 +22,15 @@ export default function Header() {
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3">
-                        <div className="w-12 h-12 relative flex-shrink-0">
+                    <Link href="/" className="flex items-center">
+                        <div className="w-48 h-16 relative flex-shrink-0">
                             <Image
                                 src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo-v2.png"
                                 alt="Kainan Holdings Logo"
                                 fill
-                                className="object-contain"
+                                className="object-contain object-left"
                                 unoptimized
                             />
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="font-heading font-bold text-xl text-secondary-900">KAINAN</span>
-                            <span className="text-xs text-secondary-500 tracking-wider">HOLDINGS SDN BHD</span>
                         </div>
                     </Link>
 
