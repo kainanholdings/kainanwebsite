@@ -284,13 +284,13 @@ export default function Home() {
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                        {industries.map((industry, index) => (
-                            <AnimatedSection key={industry.name} animation="scale" delay={index * 80}>
-                                <IndustryCard {...industry} variant="dark" />
-                            </AnimatedSection>
-                        ))}
-                    </div>
+                    <AnimatedSection animation="fade-up" delay={200}>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                            {industries.map((industry) => (
+                                <IndustryCard key={industry.name} {...industry} variant="dark" />
+                            ))}
+                        </div>
+                    </AnimatedSection>
 
                     <AnimatedSection animation="fade-up" delay={500} className="text-center mt-12">
                         <Link href="/industries" className="btn-accent hover-lift group">
