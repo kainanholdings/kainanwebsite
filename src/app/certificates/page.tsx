@@ -15,7 +15,7 @@ const certificates = [
         number: "JTKSM 1131-1",
         description: "Official license from Jabatan Tenaga Kerja Semenanjung Malaysia authorizing recruitment operations for local and foreign workers.",
         issuedBy: "Ministry of Human Resources Malaysia",
-        image: "/images/certificates/cert-jtksm.jpg",
+        image: "https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/certificates/cert-jtksm.jpg",
         alt: "JTKSM License C Certificate No. 1131-1 for Agensi Pekerjaan Kainan Sdn Bhd",
     },
     {
@@ -24,7 +24,7 @@ const certificates = [
         number: "201601030868 (1201809-P)",
         description: "Official registration with Suruhanjaya Syarikat Malaysia (Companies Commission of Malaysia) as a private limited company.",
         issuedBy: "Suruhanjaya Syarikat Malaysia",
-        image: "/images/certificates/cert-ssm.jpg",
+        image: "https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/certificates/cert-ssm.jpg",
         alt: "SSM Certificate of Incorporation for Agensi Pekerjaan Kainan Sdn Bhd Registration No. 201601030868",
     },
     {
@@ -33,7 +33,7 @@ const certificates = [
         number: "December 2023",
         description: "Completion certificate for Responsible Business Alliance (RBA) Awareness/Workshop Training, demonstrating commitment to ethical recruitment practices.",
         issuedBy: "Responsible Business Alliance",
-        image: "/images/certificates/cert-rba.jpg",
+        image: "https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/certificates/cert-rba.jpg",
         alt: "RBA Responsible Business Alliance Awareness Training Certificate for Kainan Holdings December 2023",
     },
     {
@@ -42,7 +42,7 @@ const certificates = [
         number: "Authorized Agency",
         description: "Official authorization as an approved agency for the Malaysia Premium Visa Programme (PVIP).",
         issuedBy: "Immigration Department Malaysia",
-        image: "/images/certificates/cert-pvip.jpg",
+        image: "https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/certificates/cert-pvip.jpg",
         alt: "PVIP Malaysia Premium Visa Programme Authorization Certificate for Kainan Holdings",
     },
 ];
