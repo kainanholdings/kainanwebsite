@@ -169,11 +169,6 @@ export default function IndustriesPage() {
                                                 sizes="(max-width: 768px) 100vw, 50vw"
                                                 unoptimized
                                             />
-                                            {/* Overlay with gradient */}
-                                            <div className={`absolute inset-0 bg-gradient-to-t ${industry.color} opacity-60`}></div>
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <h3 className="text-2xl font-heading font-bold text-white drop-shadow-lg">{industry.name}</h3>
-                                            </div>
                                         </div>
                                     </div>
 
