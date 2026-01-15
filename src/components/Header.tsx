@@ -25,7 +25,7 @@ export default function Header() {
                     <Link href="/" className="flex items-center gap-3">
                         <div className="w-12 h-12 relative flex-shrink-0">
                             <Image
-                                src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo.png"
+                                src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo-v2.png"
                                 alt="Kainan Holdings Logo"
                                 fill
                                 className="object-contain"
