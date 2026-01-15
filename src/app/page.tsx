@@ -171,13 +171,13 @@ export default function Home() {
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {services.map((service, index) => (
-                            <AnimatedSection key={service.title} animation="fade-up" delay={index * 100}>
-                                <ServiceCard {...service} />
-                            </AnimatedSection>
-                        ))}
-                    </div>
+                    <AnimatedSection animation="fade-up" delay={100}>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {services.map((service) => (
+                                <ServiceCard key={service.title} {...service} />
+                            ))}
+                        </div>
+                    </AnimatedSection>
 
                     <AnimatedSection animation="fade-up" delay={400} className="text-center mt-12">
                         <Link href="/services" className="btn-secondary hover-lift group">
