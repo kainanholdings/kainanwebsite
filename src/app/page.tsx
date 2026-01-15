@@ -159,7 +159,7 @@ export default function Home() {
             </section>
 
             {/* Services Section */}
-            <section className="py-20 bg-secondary-50">
+            <section className="py-20 bg-secondary-50 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge-primary mb-4">Our Services</span>
