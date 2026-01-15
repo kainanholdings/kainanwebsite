@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface Certificate {
     id: string;
@@ -27,15 +28,19 @@ export default function CertificateGallery({ certificates }: CertificateGalleryP
                     <button
                         key={cert.id}
                         onClick={() => setSelectedCertificate(cert)}
-                        className="card p-6 text-left group cursor-pointer"
+                        className="card p-6 text-left group cursor-pointer hover-lift"
                     >
                         <div className="flex gap-4">
                             {/* Thumbnail */}
-                            <div className="w-24 h-32 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden group-hover:ring-2 group-hover:ring-primary-600 transition-all">
-                                {/* Placeholder certificate icon */}
-                                <svg className="w-12 h-12 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
+                            <div className="w-24 h-32 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden group-hover:ring-2 group-hover:ring-primary-600 transition-all relative">
+                                <Image
+                                    src={cert.image}
+                                    alt={cert.alt}
+                                    fill
+                                    className="object-cover"
+                                    sizes="96px"
+                                    unoptimized
+                                />
                             </div>
 
                             {/* Info */}
@@ -44,7 +49,7 @@ export default function CertificateGallery({ certificates }: CertificateGalleryP
                                     {cert.title}
                                 </h3>
                                 <p className="text-primary-600 text-sm font-medium mb-2">{cert.number}</p>
-                                <p className="text-secondary-600 text-sm mb-2">{cert.description}</p>
+                                <p className="text-secondary-600 text-sm mb-2 line-clamp-2">{cert.description}</p>
                                 <p className="text-secondary-400 text-xs">Issued by: {cert.issuedBy}</p>
                             </div>
                         </div>
@@ -89,18 +94,16 @@ export default function CertificateGallery({ certificates }: CertificateGalleryP
                             </button>
                         </div>
 
-                        {/* Certificate Image Placeholder */}
-                        <div className="aspect-[4/3] bg-secondary-50 flex items-center justify-center">
-                            {/* Placeholder - replace with actual image when available */}
-                            <div className="text-center p-8">
-                                <svg className="w-24 h-24 mx-auto text-secondary-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <p className="text-secondary-500 mb-2">Certificate Image</p>
-                                <p className="text-secondary-400 text-sm">
-                                    Actual certificate scan will be displayed here
-                                </p>
-                            </div>
+                        {/* Certificate Image */}
+                        <div className="aspect-[4/3] bg-secondary-50 relative">
+                            <Image
+                                src={selectedCertificate.image}
+                                alt={selectedCertificate.alt}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 896px"
+                                unoptimized
+                            />
                         </div>
 
                         {/* Footer */}
