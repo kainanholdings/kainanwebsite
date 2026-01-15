@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
     title: "PVIP - Malaysia Premium Visa Programme | Kainan Holdings",
@@ -97,14 +98,14 @@ export default function PVIPPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-900">
                     <div className="absolute inset-0 bg-mesh opacity-20"></div>
                     {/* Decorative elements */}
-                    <div className="absolute top-20 right-20 w-64 h-64 bg-accent-400/20 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-20 left-20 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+                    <div className="absolute top-20 right-20 w-64 h-64 bg-accent-400/20 rounded-full blur-3xl animate-float-slow"></div>
+                    <div className="absolute bottom-20 left-20 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-float-delayed"></div>
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="text-white">
-                            <span className="badge bg-accent-400 text-secondary-900 mb-4">
+                        <AnimatedSection animation="fade-up" className="text-white">
+                            <span className="badge bg-accent-400 text-secondary-900 mb-4 animate-pulse-glow">
                                 Authorized Agency
                             </span>
                             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
@@ -114,20 +115,23 @@ export default function PVIPPage() {
                                 Kainan Holdings is an authorized agency for the Malaysia Premium Visa Programme. We help high-net-worth individuals and exceptional talent obtain long-term residency in Malaysia.
                             </p>
                             <div className="flex flex-wrap gap-4">
-                                <Link href="/contact" className="btn-accent">
+                                <Link href="/contact" className="btn-accent hover-lift group">
                                     Apply Now
+                                    <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
                                 </Link>
-                                <Link href="#eligibility" className="btn-outline border-white/30 text-white hover:bg-white/10">
+                                <Link href="#eligibility" className="btn-outline border-white/30 text-white hover:bg-white/10 hover-magnetic">
                                     Check Eligibility
                                 </Link>
                             </div>
-                        </div>
+                        </AnimatedSection>
 
                         {/* Visual */}
-                        <div className="hidden lg:block">
-                            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                        <AnimatedSection animation="slide-right" delay={200} className="hidden lg:block">
+                            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 hover-glow transition-all duration-500">
                                 <div className="text-center">
-                                    <div className="w-20 h-20 mx-auto mb-4 bg-accent-400 rounded-2xl flex items-center justify-center">
+                                    <div className="w-20 h-20 mx-auto mb-4 bg-accent-400 rounded-2xl flex items-center justify-center animate-bounce-subtle">
                                         <svg className="w-10 h-10 text-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                                         </svg>
@@ -136,58 +140,60 @@ export default function PVIPPage() {
                                     <p className="text-white/70 text-sm mb-6">Official partner for visa applications</p>
 
                                     <div className="grid grid-cols-2 gap-4 text-center">
-                                        <div className="bg-white/5 rounded-xl p-4">
+                                        <div className="bg-white/5 rounded-xl p-4 hover-magnetic">
                                             <div className="text-2xl font-heading font-bold text-accent-400">20</div>
                                             <div className="text-xs text-white/60">Year Visa</div>
                                         </div>
-                                        <div className="bg-white/5 rounded-xl p-4">
+                                        <div className="bg-white/5 rounded-xl p-4 hover-magnetic">
                                             <div className="text-2xl font-heading font-bold text-accent-400">0</div>
                                             <div className="text-xs text-white/60">Min. Stay</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
 
             {/* What is PVIP */}
             <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <AnimatedSection animation="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="section-heading mb-6">What is PVIP?</h2>
                         <p className="text-lg text-secondary-600 leading-relaxed">
                             The Malaysia Premium Visa Programme (PVIP) is a long-term residency program launched by the Malaysian government for high-net-worth individuals and exceptional talent from around the world. It offers a 20-year multiple-entry visa with the flexibility to live, work, and invest in Malaysia.
                         </p>
                     </div>
-                </div>
+                </AnimatedSection>
             </section>
 
             {/* Benefits */}
             <section className="py-20 bg-secondary-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge-primary mb-4">Why Choose PVIP</span>
                         <h2 className="section-heading mb-4">Programme Benefits</h2>
                         <p className="section-subheading mx-auto">
                             PVIP offers numerous advantages for individuals seeking long-term residency in Malaysia.
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {benefits.map((benefit) => (
-                            <div key={benefit.title} className="card p-6">
-                                <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4">
-                                    {benefit.icon}
+                        {benefits.map((benefit, index) => (
+                            <AnimatedSection key={benefit.title} animation="fade-up" delay={index * 80}>
+                                <div className="card p-6 hover-lift h-full">
+                                    <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4 hover-rotate transition-transform">
+                                        {benefit.icon}
+                                    </div>
+                                    <h3 className="text-lg font-heading font-semibold text-secondary-900 mb-2">
+                                        {benefit.title}
+                                    </h3>
+                                    <p className="text-secondary-600 text-sm">
+                                        {benefit.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-lg font-heading font-semibold text-secondary-900 mb-2">
-                                    {benefit.title}
-                                </h3>
-                                <p className="text-secondary-600 text-sm">
-                                    {benefit.description}
-                                </p>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -196,55 +202,59 @@ export default function PVIPPage() {
             {/* Eligibility */}
             <section id="eligibility" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge-accent mb-4">Requirements</span>
                         <h2 className="section-heading mb-4">Eligibility Criteria</h2>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        {eligibility.map((track) => (
-                            <div key={track.category} className="bg-secondary-50 rounded-2xl p-8">
-                                <h3 className="text-xl font-heading font-bold text-secondary-900 mb-6">
-                                    {track.category}
-                                </h3>
-                                <ul className="space-y-4">
-                                    {track.requirements.map((req, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                            </div>
-                                            <span className="text-secondary-600">{req}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                        {eligibility.map((track, index) => (
+                            <AnimatedSection key={track.category} animation={index === 0 ? "slide-left" : "slide-right"}>
+                                <div className="bg-secondary-50 rounded-2xl p-8 hover-glow transition-all duration-500 h-full">
+                                    <h3 className="text-xl font-heading font-bold text-secondary-900 mb-6">
+                                        {track.category}
+                                    </h3>
+                                    <ul className="space-y-4">
+                                        {track.requirements.map((req, reqIndex) => (
+                                            <li key={reqIndex} className="flex items-start gap-3">
+                                                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 animate-pulse-glow">
+                                                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                                <span className="text-secondary-600">{req}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </AnimatedSection>
                         ))}
                     </div>
 
-                    <div className="mt-8 p-6 bg-accent-50 rounded-2xl border border-accent-200">
-                        <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 bg-accent-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg className="w-5 h-5 text-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 className="font-semibold text-secondary-900 mb-1">Not Sure If You Qualify?</h4>
-                                <p className="text-secondary-600 text-sm">
-                                    Contact us for a free eligibility assessment. Our team will review your profile and advise on the best pathway for your PVIP application.
-                                </p>
+                    <AnimatedSection animation="fade-up" delay={200}>
+                        <div className="mt-8 p-6 bg-accent-50 rounded-2xl border border-accent-200 hover-magnetic">
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 bg-accent-400 rounded-lg flex items-center justify-center flex-shrink-0 animate-bounce-subtle">
+                                    <svg className="w-5 h-5 text-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold text-secondary-900 mb-1">Not Sure If You Qualify?</h4>
+                                    <p className="text-secondary-600 text-sm">
+                                        Contact us for a free eligibility assessment. Our team will review your profile and advise on the best pathway for your PVIP application.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </AnimatedSection>
                 </div>
             </section>
 
             {/* Application Process */}
             <section className="py-20 gradient-dark text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge bg-accent-400/20 text-accent-300 mb-4">How to Apply</span>
                         <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
                             Application Process
@@ -252,17 +262,19 @@ export default function PVIPPage() {
                         <p className="text-secondary-300 max-w-2xl mx-auto">
                             As an authorized PVIP agency, we guide you through every step of the application process.
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-4 gap-6">
-                        {process.map((item) => (
-                            <div key={item.step} className="text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-accent-400 rounded-full flex items-center justify-center">
-                                    <span className="text-secondary-900 font-heading font-bold text-xl">{item.step}</span>
+                        {process.map((item, index) => (
+                            <AnimatedSection key={item.step} animation="fade-up" delay={index * 100}>
+                                <div className="text-center hover-magnetic">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-accent-400 rounded-full flex items-center justify-center animate-pulse-glow">
+                                        <span className="text-secondary-900 font-heading font-bold text-xl">{item.step}</span>
+                                    </div>
+                                    <h3 className="font-heading font-semibold text-white mb-2">{item.title}</h3>
+                                    <p className="text-secondary-300 text-sm">{item.desc}</p>
                                 </div>
-                                <h3 className="font-heading font-semibold text-white mb-2">{item.title}</h3>
-                                <p className="text-secondary-300 text-sm">{item.desc}</p>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -272,7 +284,7 @@ export default function PVIPPage() {
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div>
+                        <AnimatedSection animation="slide-left">
                             <span className="badge-primary mb-4">Why Kainan Holdings</span>
                             <h2 className="section-heading mb-6">Your Trusted PVIP Partner</h2>
                             <p className="text-secondary-600 mb-8">
@@ -287,33 +299,37 @@ export default function PVIPPage() {
                                     "Document preparation assistance",
                                     "Regular status updates",
                                     "Post-approval support services",
-                                ].map((feature) => (
-                                    <div key={feature} className="flex items-center gap-3">
-                                        <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center">
-                                            <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
+                                ].map((feature, index) => (
+                                    <AnimatedSection key={feature} animation="fade-up" delay={index * 80}>
+                                        <div className="flex items-center gap-3 hover-magnetic p-2 -m-2 rounded-lg transition-all">
+                                            <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center">
+                                                <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <span className="text-secondary-700">{feature}</span>
                                         </div>
-                                        <span className="text-secondary-700">{feature}</span>
-                                    </div>
+                                    </AnimatedSection>
                                 ))}
                             </div>
-                        </div>
+                        </AnimatedSection>
 
-                        <div className="bg-secondary-50 rounded-3xl p-8">
-                            <h3 className="text-xl font-heading font-bold text-secondary-900 mb-6">
-                                Ready to Apply for PVIP?
-                            </h3>
-                            <p className="text-secondary-600 mb-6">
-                                Contact us today to schedule a consultation and begin your PVIP journey with Malaysia&apos;s trusted authorized agency.
-                            </p>
-                            <Link href="/contact" className="btn-primary w-full text-center">
-                                Schedule Consultation
-                            </Link>
-                            <p className="text-center text-sm text-secondary-500 mt-4">
-                                Or call us at <a href="tel:+60333591128" className="text-primary-600 font-medium">+603-3359 1128</a>
-                            </p>
-                        </div>
+                        <AnimatedSection animation="slide-right">
+                            <div className="bg-secondary-50 rounded-3xl p-8 hover-glow transition-all duration-500">
+                                <h3 className="text-xl font-heading font-bold text-secondary-900 mb-6">
+                                    Ready to Apply for PVIP?
+                                </h3>
+                                <p className="text-secondary-600 mb-6">
+                                    Contact us today to schedule a consultation and begin your PVIP journey with Malaysia&apos;s trusted authorized agency.
+                                </p>
+                                <Link href="/contact" className="btn-primary w-full text-center hover-lift">
+                                    Schedule Consultation
+                                </Link>
+                                <p className="text-center text-sm text-secondary-500 mt-4">
+                                    Or call us at <a href="tel:+60333591128" className="text-primary-600 font-medium hover-underline">+603-3359 1128</a>
+                                </p>
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>

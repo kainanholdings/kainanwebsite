@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
     title: "About Us | Kainan Holdings - Licensed Recruitment Agency",
@@ -60,9 +61,10 @@ export default function AboutPage() {
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary-50 to-white"></div>
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-mesh opacity-30"></div>
+                <div className="absolute top-20 right-20 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl animate-float-slow"></div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
+                    <AnimatedSection animation="fade-up" className="max-w-3xl">
                         <span className="badge-primary mb-4">About Us</span>
                         <h1 className="text-4xl md:text-5xl font-heading font-bold text-secondary-900 mb-6">
                             Your Trusted Partner in Workforce Solutions
@@ -70,7 +72,7 @@ export default function AboutPage() {
                         <p className="text-lg text-secondary-600 leading-relaxed">
                             Since 2016, Agensi Pekerjaan Kainan Sdn Bhd has been connecting businesses with the right talent across Malaysia. As a licensed recruitment agency, we specialize in providing comprehensive workforce solutions for various industries.
                         </p>
-                    </div>
+                    </AnimatedSection>
                 </div>
             </section>
 
@@ -78,7 +80,7 @@ export default function AboutPage() {
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div>
+                        <AnimatedSection animation="slide-left">
                             <h2 className="text-3xl font-heading font-bold text-secondary-900 mb-6">
                                 Company Profile
                             </h2>
@@ -95,7 +97,7 @@ export default function AboutPage() {
                             </div>
 
                             {/* Company Details */}
-                            <div className="mt-8 p-6 bg-secondary-50 rounded-2xl">
+                            <div className="mt-8 p-6 bg-secondary-50 rounded-2xl hover-magnetic">
                                 <h3 className="font-semibold text-secondary-900 mb-4">Company Details</h3>
                                 <div className="grid grid-cols-2 gap-4 text-sm">
                                     <div>
@@ -116,14 +118,14 @@ export default function AboutPage() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </AnimatedSection>
 
                         {/* Visual Element */}
-                        <div className="relative">
-                            <div className="aspect-square bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl overflow-hidden">
+                        <AnimatedSection animation="slide-right" className="relative">
+                            <div className="aspect-square bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl overflow-hidden hover-glow transition-all duration-500">
                                 <div className="absolute inset-0 flex items-center justify-center text-white">
                                     <div className="text-center p-8">
-                                        <div className="w-32 h-32 mx-auto mb-6 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                                        <div className="w-32 h-32 mx-auto mb-6 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm animate-float-slow">
                                             <span className="font-heading font-bold text-6xl">K</span>
                                         </div>
                                         <h3 className="text-2xl font-heading font-bold mb-2">Kainan Holdings</h3>
@@ -131,8 +133,8 @@ export default function AboutPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-400 rounded-2xl -z-10"></div>
-                        </div>
+                            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-400 rounded-2xl -z-10 animate-float-delayed"></div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -142,31 +144,35 @@ export default function AboutPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* Mission */}
-                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                            <div className="w-14 h-14 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
-                                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
+                        <AnimatedSection animation="slide-left">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover-glow transition-all duration-500 h-full">
+                                <div className="w-14 h-14 bg-primary-600 rounded-xl flex items-center justify-center mb-6 animate-bounce-subtle">
+                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <h2 className="text-2xl font-heading font-bold mb-4">Our Mission</h2>
+                                <p className="text-secondary-300 leading-relaxed">
+                                    To provide exceptional workforce solutions that connect the right people with the right opportunities. We strive to maximize the pool of top-quality candidates while ensuring ethical recruitment practices that benefit both employers and workers.
+                                </p>
                             </div>
-                            <h2 className="text-2xl font-heading font-bold mb-4">Our Mission</h2>
-                            <p className="text-secondary-300 leading-relaxed">
-                                To provide exceptional workforce solutions that connect the right people with the right opportunities. We strive to maximize the pool of top-quality candidates while ensuring ethical recruitment practices that benefit both employers and workers.
-                            </p>
-                        </div>
+                        </AnimatedSection>
 
                         {/* Vision */}
-                        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                            <div className="w-14 h-14 bg-accent-400 rounded-xl flex items-center justify-center mb-6">
-                                <svg className="w-7 h-7 text-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
+                        <AnimatedSection animation="slide-right">
+                            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover-glow transition-all duration-500 h-full">
+                                <div className="w-14 h-14 bg-accent-400 rounded-xl flex items-center justify-center mb-6 animate-bounce-subtle">
+                                    <svg className="w-7 h-7 text-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </div>
+                                <h2 className="text-2xl font-heading font-bold mb-4">Our Vision</h2>
+                                <p className="text-secondary-300 leading-relaxed">
+                                    To be Malaysia&apos;s most trusted recruitment partner, recognized for building long-term partnerships and delivering workforce solutions that drive business success across all industries we serve.
+                                </p>
                             </div>
-                            <h2 className="text-2xl font-heading font-bold mb-4">Our Vision</h2>
-                            <p className="text-secondary-300 leading-relaxed">
-                                To be Malaysia&apos;s most trusted recruitment partner, recognized for building long-term partnerships and delivering workforce solutions that drive business success across all industries we serve.
-                            </p>
-                        </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -174,27 +180,29 @@ export default function AboutPage() {
             {/* Core Values */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge-accent mb-4">Our Values</span>
                         <h2 className="section-heading mb-4">What We Stand For</h2>
                         <p className="section-subheading mx-auto">
                             Our core values guide every decision we make and every relationship we build.
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {values.map((value) => (
-                            <div key={value.title} className="card p-6 text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600">
-                                    {value.icon}
+                        {values.map((value, index) => (
+                            <AnimatedSection key={value.title} animation="fade-up" delay={index * 100}>
+                                <div className="card p-6 text-center hover-lift">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 hover-rotate transition-transform">
+                                        {value.icon}
+                                    </div>
+                                    <h3 className="text-lg font-heading font-semibold text-secondary-900 mb-2">
+                                        {value.title}
+                                    </h3>
+                                    <p className="text-secondary-600 text-sm">
+                                        {value.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-lg font-heading font-semibold text-secondary-900 mb-2">
-                                    {value.title}
-                                </h3>
-                                <p className="text-secondary-600 text-sm">
-                                    {value.description}
-                                </p>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -203,10 +211,10 @@ export default function AboutPage() {
             {/* Timeline/Milestones */}
             <section className="py-20 bg-secondary-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge-primary mb-4">Our Journey</span>
                         <h2 className="section-heading mb-4">Key Milestones</h2>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="relative">
                         {/* Timeline line */}
@@ -214,22 +222,28 @@ export default function AboutPage() {
 
                         <div className="space-y-12">
                             {milestones.map((milestone, index) => (
-                                <div key={milestone.year} className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                                    {/* Content */}
-                                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                                        <div className="card p-6">
-                                            <span className="text-primary-600 font-heading font-bold text-2xl">{milestone.year}</span>
-                                            <h3 className="text-lg font-semibold text-secondary-900 mt-1">{milestone.event}</h3>
-                                            <p className="text-secondary-600 text-sm mt-2">{milestone.description}</p>
+                                <AnimatedSection
+                                    key={milestone.year}
+                                    animation={index % 2 === 0 ? "slide-left" : "slide-right"}
+                                    delay={index * 100}
+                                >
+                                    <div className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                        {/* Content */}
+                                        <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                                            <div className="card p-6 hover-lift">
+                                                <span className="text-primary-600 font-heading font-bold text-2xl">{milestone.year}</span>
+                                                <h3 className="text-lg font-semibold text-secondary-900 mt-1">{milestone.event}</h3>
+                                                <p className="text-secondary-600 text-sm mt-2">{milestone.description}</p>
+                                            </div>
                                         </div>
+
+                                        {/* Center dot */}
+                                        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white animate-pulse-glow"></div>
+
+                                        {/* Empty space for other side */}
+                                        <div className="hidden md:block w-1/2"></div>
                                     </div>
-
-                                    {/* Center dot */}
-                                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white"></div>
-
-                                    {/* Empty space for other side */}
-                                    <div className="hidden md:block w-1/2"></div>
-                                </div>
+                                </AnimatedSection>
                             ))}
                         </div>
                     </div>
@@ -238,7 +252,7 @@ export default function AboutPage() {
 
             {/* CTA Section */}
             <section className="py-16 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-heading font-bold text-secondary-900 mb-4">
                         View Our Certifications
                     </h2>
@@ -246,14 +260,14 @@ export default function AboutPage() {
                         We maintain full transparency about our licensing and compliance status.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <Link href="/certificates" className="btn-primary">
+                        <Link href="/certificates" className="btn-primary hover-lift">
                             View Certificates
                         </Link>
-                        <Link href="/contact" className="btn-outline">
+                        <Link href="/contact" className="btn-outline hover-magnetic">
                             Contact Us
                         </Link>
                     </div>
-                </div>
+                </AnimatedSection>
             </section>
         </>
     );

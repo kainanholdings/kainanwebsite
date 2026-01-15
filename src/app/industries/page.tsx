@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
     title: "Industries We Serve | Kainan Holdings",
@@ -156,9 +157,10 @@ export default function IndustriesPage() {
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary-50 to-white"></div>
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-mesh opacity-30"></div>
+                <div className="absolute top-20 left-20 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl animate-float-slow"></div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
+                    <AnimatedSection animation="fade-up" className="max-w-3xl">
                         <span className="badge-primary mb-4">Industries We Serve</span>
                         <h1 className="text-4xl md:text-5xl font-heading font-bold text-secondary-900 mb-6">
                             Expertise Across Key Sectors
@@ -166,7 +168,7 @@ export default function IndustriesPage() {
                         <p className="text-lg text-secondary-600 leading-relaxed">
                             We have deep experience providing workforce solutions across Malaysia&apos;s most dynamic industries. Our sector-specific expertise ensures we understand your unique staffing challenges.
                         </p>
-                    </div>
+                    </AnimatedSection>
                 </div>
             </section>
 
@@ -175,49 +177,55 @@ export default function IndustriesPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-12">
                         {industries.map((industry, index) => (
-                            <div
+                            <AnimatedSection
                                 key={industry.id}
-                                id={industry.id}
-                                className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "" : ""
-                                    }`}
+                                animation={index % 2 === 0 ? "slide-left" : "slide-right"}
                             >
-                                {/* Visual */}
-                                <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                                    <div className={`aspect-[4/3] bg-gradient-to-br ${industry.color} rounded-3xl flex items-center justify-center text-white`}>
-                                        <div className="text-center">
-                                            <div className="w-24 h-24 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4">
-                                                {industry.icon}
+                                <div
+                                    id={industry.id}
+                                    className="grid lg:grid-cols-2 gap-8 items-center"
+                                >
+                                    {/* Visual */}
+                                    <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                                        <div className={`aspect-[4/3] bg-gradient-to-br ${industry.color} rounded-3xl flex items-center justify-center text-white hover-glow transition-all duration-500`}>
+                                            <div className="text-center">
+                                                <div className="w-24 h-24 mx-auto bg-white/20 rounded-2xl flex items-center justify-center mb-4 animate-float-slow">
+                                                    {industry.icon}
+                                                </div>
+                                                <h3 className="text-2xl font-heading font-bold">{industry.name}</h3>
                                             </div>
-                                            <h3 className="text-2xl font-heading font-bold">{industry.name}</h3>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                                    <h2 className="text-2xl font-heading font-bold text-secondary-900 mb-4">
-                                        {industry.name}
-                                    </h2>
-                                    <p className="text-secondary-600 mb-6 leading-relaxed">
-                                        {industry.description}
-                                    </p>
-
-                                    <div className="mb-6">
-                                        <h3 className="font-semibold text-secondary-900 mb-3">Common Positions We Fill:</h3>
-                                        <div className="flex flex-wrap gap-2">
-                                            {industry.positions.map((position) => (
-                                                <span key={position} className="badge-primary text-xs">
-                                                    {position}
-                                                </span>
-                                            ))}
                                         </div>
                                     </div>
 
-                                    <Link href="/contact" className="btn-primary">
-                                        Discuss Your Needs
-                                    </Link>
+                                    {/* Content */}
+                                    <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                                        <h2 className="text-2xl font-heading font-bold text-secondary-900 mb-4">
+                                            {industry.name}
+                                        </h2>
+                                        <p className="text-secondary-600 mb-6 leading-relaxed">
+                                            {industry.description}
+                                        </p>
+
+                                        <div className="mb-6">
+                                            <h3 className="font-semibold text-secondary-900 mb-3">Common Positions We Fill:</h3>
+                                            <div className="flex flex-wrap gap-2">
+                                                {industry.positions.map((position) => (
+                                                    <span key={position} className="badge-primary text-xs hover-magnetic">
+                                                        {position}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <Link href="/contact" className="btn-primary hover-lift group">
+                                            Discuss Your Needs
+                                            <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -227,22 +235,19 @@ export default function IndustriesPage() {
             <section className="py-16 gradient-dark text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <div className="text-4xl font-heading font-bold text-accent-400 mb-2">7+</div>
-                            <div className="text-secondary-300">Industries Served</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-heading font-bold text-accent-400 mb-2">500+</div>
-                            <div className="text-secondary-300">Client Companies</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-heading font-bold text-accent-400 mb-2">10,000+</div>
-                            <div className="text-secondary-300">Workers Placed</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl font-heading font-bold text-accent-400 mb-2">95%</div>
-                            <div className="text-secondary-300">Client Satisfaction</div>
-                        </div>
+                        {[
+                            { value: "7+", label: "Industries Served" },
+                            { value: "500+", label: "Client Companies" },
+                            { value: "10,000+", label: "Workers Placed" },
+                            { value: "95%", label: "Client Satisfaction" },
+                        ].map((stat, index) => (
+                            <AnimatedSection key={stat.label} animation="fade-up" delay={index * 100}>
+                                <div className="hover-magnetic">
+                                    <div className="text-4xl font-heading font-bold text-accent-400 mb-2">{stat.value}</div>
+                                    <div className="text-secondary-300">{stat.label}</div>
+                                </div>
+                            </AnimatedSection>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -250,12 +255,12 @@ export default function IndustriesPage() {
             {/* Why Industry Expertise Matters */}
             <section className="py-20 bg-secondary-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center mb-12">
+                    <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto text-center mb-12">
                         <h2 className="section-heading mb-4">Why Industry Expertise Matters</h2>
                         <p className="text-secondary-600">
                             Every industry has unique workforce requirements. Our sector-specific knowledge ensures we find candidates who meet your specific needs.
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
@@ -286,18 +291,20 @@ export default function IndustriesPage() {
                                     </svg>
                                 ),
                             },
-                        ].map((item) => (
-                            <div key={item.title} className="card p-6 text-center">
-                                <div className="w-16 h-16 mx-auto bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4">
-                                    {item.icon}
+                        ].map((item, index) => (
+                            <AnimatedSection key={item.title} animation="fade-up" delay={index * 100}>
+                                <div className="card p-6 text-center hover-lift">
+                                    <div className="w-16 h-16 mx-auto bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4 hover-rotate transition-transform">
+                                        {item.icon}
+                                    </div>
+                                    <h3 className="text-lg font-heading font-semibold text-secondary-900 mb-2">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-secondary-600 text-sm">
+                                        {item.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-lg font-heading font-semibold text-secondary-900 mb-2">
-                                    {item.title}
-                                </h3>
-                                <p className="text-secondary-600 text-sm">
-                                    {item.description}
-                                </p>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -305,17 +312,17 @@ export default function IndustriesPage() {
 
             {/* CTA Section */}
             <section className="py-16 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-heading font-bold text-secondary-900 mb-4">
                         Don&apos;t See Your Industry?
                     </h2>
                     <p className="text-secondary-600 mb-8">
                         We serve many more sectors beyond those listed. Contact us to discuss your specific workforce needs.
                     </p>
-                    <Link href="/contact" className="btn-primary">
+                    <Link href="/contact" className="btn-primary hover-lift">
                         Contact Us Today
                     </Link>
-                </div>
+                </AnimatedSection>
             </section>
         </>
     );

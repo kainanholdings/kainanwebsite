@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
     title: "Our Services | Kainan Holdings - Recruitment & HR Solutions",
@@ -134,36 +135,40 @@ export default function ServicesPage() {
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 gradient-dark">
                     <div className="absolute inset-0 bg-mesh opacity-30"></div>
+                    <div className="absolute top-20 right-20 w-72 h-72 bg-primary-600/20 rounded-full blur-3xl animate-float-slow"></div>
+                    <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent-400/20 rounded-full blur-3xl animate-float-delayed"></div>
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-                    <div className="max-w-3xl">
-                        <span className="badge bg-accent-400/20 text-accent-300 mb-4">Our Services</span>
+                    <AnimatedSection animation="fade-up" className="max-w-3xl">
+                        <span className="badge bg-accent-400/20 text-accent-300 mb-4 animate-pulse-glow">Our Services</span>
                         <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
                             Comprehensive Workforce Solutions
                         </h1>
                         <p className="text-lg text-secondary-300 leading-relaxed">
                             From recruitment to retention, we provide end-to-end staffing and HR solutions tailored to your business needs. Let us handle your workforce challenges so you can focus on growth.
                         </p>
-                    </div>
+                    </AnimatedSection>
                 </div>
             </section>
 
             {/* Staffing Types Overview */}
             <section className="py-16 bg-white border-b border-secondary-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <AnimatedSection animation="fade-up" className="text-center mb-12">
                         <h2 className="text-2xl font-heading font-bold text-secondary-900 mb-4">
                             Staffing Types We Offer
                         </h2>
-                    </div>
+                    </AnimatedSection>
                     <div className="grid md:grid-cols-3 gap-6">
-                        {staffingTypes.map((type) => (
-                            <div key={type.title} className="text-center p-6 bg-secondary-50 rounded-2xl">
-                                <span className="text-4xl mb-4 block">{type.icon}</span>
-                                <h3 className="font-heading font-semibold text-secondary-900 mb-2">{type.title}</h3>
-                                <p className="text-secondary-600 text-sm">{type.description}</p>
-                            </div>
+                        {staffingTypes.map((type, index) => (
+                            <AnimatedSection key={type.title} animation="fade-up" delay={index * 100}>
+                                <div className="text-center p-6 bg-secondary-50 rounded-2xl hover-lift">
+                                    <span className="text-4xl mb-4 block animate-bounce-subtle">{type.icon}</span>
+                                    <h3 className="font-heading font-semibold text-secondary-900 mb-2">{type.title}</h3>
+                                    <p className="text-secondary-600 text-sm">{type.description}</p>
+                                </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -174,66 +179,72 @@ export default function ServicesPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="space-y-16">
                         {services.map((service, index) => (
-                            <div
+                            <AnimatedSection
                                 key={service.id}
-                                id={service.id}
-                                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                                    }`}
+                                animation={index % 2 === 0 ? "slide-left" : "slide-right"}
                             >
-                                {/* Content */}
-                                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600">
-                                            {service.icon}
+                                <div
+                                    id={service.id}
+                                    className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+                                >
+                                    {/* Content */}
+                                    <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                                        <div className="flex items-center gap-4 mb-4">
+                                            <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 hover-rotate transition-transform">
+                                                {service.icon}
+                                            </div>
+                                            <div>
+                                                <h2 className="text-2xl font-heading font-bold text-secondary-900">
+                                                    {service.title}
+                                                </h2>
+                                                <p className="text-primary-600 font-medium">{service.subtitle}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h2 className="text-2xl font-heading font-bold text-secondary-900">
-                                                {service.title}
-                                            </h2>
-                                            <p className="text-primary-600 font-medium">{service.subtitle}</p>
+
+                                        <p className="text-secondary-600 mb-6 leading-relaxed">
+                                            {service.description}
+                                        </p>
+
+                                        <div className="mb-6">
+                                            <h3 className="font-semibold text-secondary-900 mb-3">What We Offer:</h3>
+                                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                {service.features.map((feature, featureIndex) => (
+                                                    <li key={feature} className={`flex items-start gap-2 text-sm text-secondary-600 stagger-${featureIndex + 1}`}>
+                                                        <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
-                                    </div>
 
-                                    <p className="text-secondary-600 mb-6 leading-relaxed">
-                                        {service.description}
-                                    </p>
-
-                                    <div className="mb-6">
-                                        <h3 className="font-semibold text-secondary-900 mb-3">What We Offer:</h3>
-                                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                            {service.features.map((feature) => (
-                                                <li key={feature} className="flex items-start gap-2 text-sm text-secondary-600">
-                                                    <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                    </svg>
-                                                    {feature}
-                                                </li>
+                                        <div className="flex flex-wrap gap-2 mb-6">
+                                            {service.industries.map((industry) => (
+                                                <span key={industry} className="badge-primary text-xs hover-magnetic">
+                                                    {industry}
+                                                </span>
                                             ))}
-                                        </ul>
+                                        </div>
+
+                                        <Link href="/contact" className="btn-primary hover-lift group">
+                                            Get a Quote
+                                            <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </Link>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2 mb-6">
-                                        {service.industries.map((industry) => (
-                                            <span key={industry} className="badge-primary text-xs">
-                                                {industry}
-                                            </span>
-                                        ))}
-                                    </div>
-
-                                    <Link href="/contact" className="btn-primary">
-                                        Get a Quote
-                                    </Link>
-                                </div>
-
-                                {/* Visual */}
-                                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                                    <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 to-secondary-100 rounded-2xl flex items-center justify-center">
-                                        <div className="w-24 h-24 bg-primary-600/10 rounded-2xl flex items-center justify-center text-primary-600">
-                                            {service.icon}
+                                    {/* Visual */}
+                                    <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                                        <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 to-secondary-100 rounded-2xl flex items-center justify-center hover-glow transition-all duration-500">
+                                            <div className="w-24 h-24 bg-primary-600/10 rounded-2xl flex items-center justify-center text-primary-600 animate-float-slow">
+                                                {service.icon}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -242,13 +253,13 @@ export default function ServicesPage() {
             {/* Process Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection animation="fade-up" className="text-center mb-16">
                         <span className="badge-accent mb-4">How We Work</span>
                         <h2 className="section-heading mb-4">Our Recruitment Process</h2>
                         <p className="section-subheading mx-auto">
                             A streamlined process designed to find you the right candidates efficiently.
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-4 gap-6">
                         {[
@@ -256,14 +267,16 @@ export default function ServicesPage() {
                             { step: "02", title: "Sourcing", desc: "We tap into our extensive network and database to find qualified candidates." },
                             { step: "03", title: "Screening", desc: "Rigorous vetting including interviews, background checks, and skill assessments." },
                             { step: "04", title: "Placement", desc: "We handle all documentation and ensure smooth onboarding of selected candidates." },
-                        ].map((item) => (
-                            <div key={item.step} className="relative text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-primary-600 rounded-full flex items-center justify-center">
-                                    <span className="text-white font-heading font-bold text-xl">{item.step}</span>
+                        ].map((item, index) => (
+                            <AnimatedSection key={item.step} animation="fade-up" delay={index * 100}>
+                                <div className="relative text-center hover-magnetic">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-primary-600 rounded-full flex items-center justify-center animate-pulse-glow">
+                                        <span className="text-white font-heading font-bold text-xl">{item.step}</span>
+                                    </div>
+                                    <h3 className="font-heading font-semibold text-secondary-900 mb-2">{item.title}</h3>
+                                    <p className="text-secondary-600 text-sm">{item.desc}</p>
                                 </div>
-                                <h3 className="font-heading font-semibold text-secondary-900 mb-2">{item.title}</h3>
-                                <p className="text-secondary-600 text-sm">{item.desc}</p>
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -271,7 +284,7 @@ export default function ServicesPage() {
 
             {/* CTA Section */}
             <section className="py-16 gradient-dark text-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-heading font-bold mb-4">
                         Ready to Solve Your Staffing Challenges?
                     </h2>
@@ -279,14 +292,14 @@ export default function ServicesPage() {
                         Contact us today to discuss your workforce needs and get a customized solution.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <Link href="/contact" className="btn-accent">
+                        <Link href="/contact" className="btn-accent hover-lift">
                             Request a Consultation
                         </Link>
-                        <Link href="tel:+60333591128" className="btn-outline border-white/30 text-white hover:bg-white/10">
+                        <Link href="tel:+60333591128" className="btn-outline border-white/30 text-white hover:bg-white/10 hover-magnetic">
                             Call +603-3359 1128
                         </Link>
                     </div>
-                </div>
+                </AnimatedSection>
             </section>
         </>
     );
