@@ -28,7 +28,7 @@ export default function Footer() {
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-12 h-12 relative flex-shrink-0 bg-white rounded-lg">
                                 <Image
-                                    src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo-v2.png"
+                                    src="https://raw.githubusercontent.com/kainanholdings/kainanwebsite/main/public/images/logo/kainan_logo-v3.png"
                                     alt="Kainan Holdings Logo"
                                     fill
                                     className="object-contain p-1"
